@@ -1,0 +1,1 @@
+npx sequelize-cli model:generate --name UserFood --attributes UserId:integer,FoodId:integer,bill:integer
