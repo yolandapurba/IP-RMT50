@@ -11,12 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      UserFood.belongsToMany(models.User)
+      UserFood.belongsToMany(models.Food)
     }
   }
   UserFood.init({
     UserId: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: User,
+        key: 'id',
+      },
       validate: {
         isNull: {
           msg: "UserId is required"
@@ -29,6 +35,10 @@ module.exports = (sequelize, DataTypes) => {
     FoodId: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: Food,
+        key: 'id',
+      },
       validate: {
         isNull: {
           msg: "FoodId is required"

@@ -1,1 +1,1 @@
-npx sequelize-cli model:generate --name UserFood --attributes UserId:integer,FoodId:integer,bill:integer
+npx sequelize-cli seed:generate --name seeding-hamburger-data
