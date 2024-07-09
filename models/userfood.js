@@ -14,9 +14,42 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   UserFood.init({
-    UserId: DataTypes.INTEGER,
-    FoodId: DataTypes.INTEGER,
-    bill: DataTypes.INTEGER
+    UserId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        isNull: {
+          msg: "UserId is required"
+        },
+        notEmpty: {
+          msg: "UserId is required"
+        }
+      }
+    },
+    FoodId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        isNull: {
+          msg: "FoodId is required"
+        },
+        notEmpty: {
+          msg: "FoodId is required"
+        }
+      }
+    },
+    bill: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        isNull: {
+          msg: "Bill is required"
+        },
+        notEmpty: {
+          msg: "Bill is required"
+        }
+      }
+    }
   }, {
     sequelize,
     modelName: 'UserFood',
